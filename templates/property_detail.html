@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>{{ property.title }}</h1>
+  <p>{{ property.description }}</p>
+  <p>Price: {{ property.price }}</p>
+  <p>Address: {{ property.address }}</p>
+  <p>Bedrooms: {{ property.bedrooms }}</p>
+  <p>Bathrooms: {{ property.bathrooms }}</p>
+  <p>Square Feet: {{ property.sqft }}</p>
+  <img src="{{ property.photo.url }}" alt="{{ property.title }}">
+{% endblock %}

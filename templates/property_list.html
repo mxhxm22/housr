@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+  <h3>Welcome {{user.username}}                      <a class="pull-right" href="logout">Logout </a></h3><br>
+<div class="jumbotron text-center">
+    <h1>Housr</h1>
+    <p>Get your fisrt home today</p> 
+  </div>
+  <div align="center">
+    <h1>Properties for Sale</h1>
+  </div><br>
+
+
+
+  
+
+
+  
+<div class="container">
+  <div class="row">
+    {% for propert in properties %}
+    <div class="col-sm-4">
+      <a href="{% url 'property_detail' propert.id %}">
+        <h3>{{ propert.title }}</h3>
+        <img width="300" height="300" src="{{ propert.photo.url }}">
+      </a>
+      <p>Address: <b>{{ propert.address }}</b></p>
+      <p><b>Bedrooms: {{ propert.bedrooms }}, Bathrooms: {{ propert.bathrooms }}...</b></p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
